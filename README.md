@@ -106,8 +106,27 @@
 		
 4.表单序列化
 
-	1.序列化方式
-	2.序列化转Json
+	1.序列化转Json
+	
+	(function($){
+          $.fn.serializeJson=function(){
+              var serializeObj={};
+              var array=this.serializeArray();
+              var str=this.serialize();
+              $(array).each(function(){
+                  if(serializeObj[this.name]){
+                      if($.isArray(serializeObj[this.name])){
+                          serializeObj[this.name].push(this.value);
+                      }else{
+                          serializeObj[this.name]=[serializeObj[this.name],this.value];
+                      }
+                  }else{
+                      serializeObj[this.name]=this.value;
+                  }
+              });
+              return serializeObj;
+          };
+     })(jQuery);
 	
 5.@RequestBody
 
