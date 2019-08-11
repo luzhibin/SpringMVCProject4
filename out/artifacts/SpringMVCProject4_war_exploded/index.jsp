@@ -32,6 +32,13 @@
     <input type="button" id="formbtn" value="发送form">
   </form>
 
+  <%--SpringMVC-@RequestBody获取文件信息--%>
+  <hr>
+  <form action="${pageContext.request.contextPath}/myform" method="post" enctype="multipart/form-data">
+      <input type="file" name="myfile"><br>
+      <input type="submit" value="提交">
+  </form>
+
   <script>
     //表单序列化转Json
     (function($){

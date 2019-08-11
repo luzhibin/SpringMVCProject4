@@ -96,4 +96,10 @@ public class MyController  {
         System.out.println(user);
         return "success";
     }
+
+    @RequestMapping("myform")
+    public String myform(@RequestBody String body){
+        System.out.println(body);
+        return "result2.jsp";
+    }
 }
